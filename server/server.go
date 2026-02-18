@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
-	"github.com/cloudflare/promsaint/backends"
-	"github.com/cloudflare/promsaint/forwarders"
-	"github.com/cloudflare/promsaint/models"
-	"github.com/cloudflare/promsaint/receivers"
+	"github.com/eriksejr/promsaint/backends"
+	"github.com/eriksejr/promsaint/forwarders"
+	"github.com/eriksejr/promsaint/models"
+	"github.com/eriksejr/promsaint/receivers"
 	"github.com/prometheus/client_golang/prometheus"
+	log "github.com/sirupsen/logrus"
 )
 
 var (

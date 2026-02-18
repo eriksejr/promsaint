@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 
-	_ "github.com/cloudflare/promsaint/logging"
-	"github.com/cloudflare/promsaint/server"
-	log "github.com/Sirupsen/logrus"
+	_ "github.com/eriksejr/promsaint/logging"
+	"github.com/eriksejr/promsaint/server"
+	log "github.com/sirupsen/logrus"
 )
 
 var (

@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cloudflare/promsaint/models"
-	"github.com/cloudflare/promsaint/utils"
-	log "github.com/Sirupsen/logrus"
+	"github.com/eriksejr/promsaint/models"
+	"github.com/eriksejr/promsaint/utils"
 	prometheus "github.com/prometheus/common/model"
+	log "github.com/sirupsen/logrus"
 )
 
 var pruneTimeout = flag.Duration("pruneage", time.Second*60, "How old of alerts to keep around")

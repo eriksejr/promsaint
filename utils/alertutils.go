@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
-	"github.com/cloudflare/promsaint/models"
+	"github.com/eriksejr/promsaint/models"
 	prometheus "github.com/prometheus/common/model"
+	log "github.com/sirupsen/logrus"
 )
 
 var (

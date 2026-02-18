@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"os"
@@ -13,9 +13,9 @@ import (
 	"regexp"
 	"strings"
 
-	_ "github.com/cloudflare/promsaint/logging"
-	"github.com/cloudflare/promsaint/models"
-	log "github.com/Sirupsen/logrus"
+	_ "github.com/eriksejr/promsaint/logging"
+	"github.com/eriksejr/promsaint/models"
+	log "github.com/sirupsen/logrus"
 )
 
 var (
@@ -108,7 +108,7 @@ func main() {
 	logger.Debugf("Status: %s", status)
 	if !regex2xx.Match([]byte(status)) {
 		logger.Errorf("Promsaint responded with non 2xx error: %s", res.Status)
-		body, _ := ioutil.ReadAll(res.Body)
+		body, _ := io.ReadAll(res.Body)
 		logger.Debugf("Promsaint response:%s", string(body))
 	}
 }

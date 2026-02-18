@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 
-	"github.com/cloudflare/promsaint/models"
-	"github.com/cloudflare/promsaint/utils"
+	"github.com/eriksejr/promsaint/models"
+	"github.com/eriksejr/promsaint/utils"
 )
 
 // JsonReceiver implements the Receiver interface by providing an HTTP POST

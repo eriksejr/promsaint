@@ -5,16 +5,16 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"path"
 	"regexp"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
-	"github.com/cloudflare/promsaint/utils"
+	"github.com/eriksejr/promsaint/utils"
 	prometheus "github.com/prometheus/common/model"
+	log "github.com/sirupsen/logrus"
 )
 
 var (
@@ -66,7 +66,7 @@ func (forwarder *SimpleForwarder) Send(alerts []prometheus.Alert) {
 	if !regex2xx.Match([]byte(status)) {
 		log.Errorf("Alertmanager responded with non 2xx error: %s", resp.Status)
 		ForwardErrors.Inc()
-		body, _ := ioutil.ReadAll(resp.Body)
+		body, _ := io.ReadAll(resp.Body)
 		log.Debugf("Alertmanager response:%s", string(body))
 	}
 

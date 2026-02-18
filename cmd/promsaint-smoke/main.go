@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
-	_ "github.com/cloudflare/promsaint/logging"
+	_ "github.com/eriksejr/promsaint/logging"
 	prometheus "github.com/prometheus/common/model"
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
+	log "github.com/sirupsen/logrus"
 )
 
 var (
