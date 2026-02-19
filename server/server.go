@@ -11,6 +11,7 @@ import (
 	"github.com/eriksejr/promsaint/models"
 	"github.com/eriksejr/promsaint/receivers"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -111,7 +112,7 @@ func (server *PromsaintServer) Start() {
 	http.HandleFunc("/json", server.receiver.Handler)
 	http.HandleFunc("/debug", server.backend.DebugHandler)
 	http.HandleFunc("/status", statusHandler)
-	http.Handle("/metrics", prometheus.Handler())
+	http.Handle("/metrics", promhttp.Handler())
 
 	log.WithFields(log.Fields{
 		"addr": *listenAddr,
