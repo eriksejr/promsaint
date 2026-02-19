@@ -32,7 +32,7 @@ func NewBasicBackend() *BasicBackend {
 
 // Add a Nagios Alert
 func (set *BasicBackend) Import(alert *models.Alert) {
-	defer utils.TimeIt(time.Now(), Operations.WithLabelValues("import"))
+	//defer utils.TimeIt(time.Now(), Operations.WithLabelValues("import"))
 
 	// Bump lastUpdate
 	set.lastUpdate = time.Now().UTC()
@@ -61,7 +61,7 @@ func (set *BasicBackend) Import(alert *models.Alert) {
 // Build list of alerts to send to alertmanager
 // Pass the send function here so that we can manage locks from this
 func (set *BasicBackend) Export(notifier models.NotificationSender) {
-	defer utils.TimeIt(time.Now(), Operations.WithLabelValues("export"))
+	// defer utils.TimeIt(time.Now(), Operations.WithLabelValues("export"))
 	set.lock.Lock()
 	defer set.lock.Unlock()
 
@@ -75,7 +75,7 @@ func (set *BasicBackend) Export(notifier models.NotificationSender) {
 }
 
 func (set *BasicBackend) Prune() {
-	defer utils.TimeIt(time.Now(), Operations.WithLabelValues("prune"))
+	//defer utils.TimeIt(time.Now(), Operations.WithLabelValues("prune"))
 
 	set.lock.Lock()
 	defer set.lock.Unlock()
@@ -113,7 +113,7 @@ func (set *BasicBackend) CalculateLastAlert() float64 {
 }
 
 func (set *BasicBackend) DebugHandler(w http.ResponseWriter, r *http.Request) {
-	defer utils.TimeIt(time.Now(), Operations.WithLabelValues("debug"))
+	//defer utils.TimeIt(time.Now(), Operations.WithLabelValues("debug"))
 
 	set.lock.Lock()
 	defer set.lock.Unlock()
